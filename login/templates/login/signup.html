@@ -1,0 +1,23 @@
+{% include 'login/base.html' %}
+<div style="padding: 70px;">
+
+<div class="card" style="width:1000px; margin-left:auto;margin-right:auto;display:block;margin-bottom:0%" >
+
+    <form action="{% url 'login:signup' %}" method="POST">
+        <h1>Sign Up</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button style="width:200px; margin-left:auto;margin-right:auto;display:block;margin-bottom:0%" class="btn btn-success"type="submit">Sign up</button>
+    </form>
+</div>
+
+<style>
+    div.card
+    {
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    margin-bottom:0%
+    left: 460px;
+    }
+</style>

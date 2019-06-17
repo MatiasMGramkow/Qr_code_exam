@@ -1,0 +1,48 @@
+{% include 'qrcodes/base.html' %}
+<div style="padding: 70px;">
+{% csrf_token %}
+
+<form action="{% url 'qrcodes:home'%}" method="post" class="form">
+    <div style="float:left;">
+        <ul>
+            <label>Web Qrcodes</label>
+            {% for qrcode in qrcodes_web  %}
+                {% if not qrcode.name == "" %}
+                    <li>
+                        <a href="{% url 'qrcodes:details' 'web' qrcode.qr_id %}">{{ qrcode.name }}</a>
+                    </li>
+                {% endif %}
+            {% endfor  %}
+        </ul>
+    </div>
+
+
+    <div style="float:left;">
+        <ul>
+            <label>WiFi Qrcodes</label>
+            {% for qrcode in qrcodes_wifi  %}
+                {% if not qrcode.name == "" %}
+                    <li>
+                        <a href="{% url 'qrcodes:details' 'wifi' qrcode.qr_id %}">{{ qrcode.name }}</a>
+                    </li>
+                {% endif %}
+            {% endfor  %}
+        </ul>
+    </div>
+
+
+    <div style="float:left;">
+        <ul>
+            <label>Vcard Qrcodes</label>
+            {% for qrcode in qrcodes_vcard  %}
+                {% if not qrcode.name == "" %}
+                    <li>
+                        <a href="{% url 'qrcodes:details' 'vcard' qrcode.qr_id %}">{{ qrcode.name }}</a>
+                    </li>
+                {% endif %}
+            {% endfor  %}
+        </ul>
+    </div>
+</form>
+
+

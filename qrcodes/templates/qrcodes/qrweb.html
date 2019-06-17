@@ -1,0 +1,15 @@
+{% include 'qrcodes/base.html' %}
+<div style="padding: 70px;">
+<form action="{% url 'qrcodes:new_web_qr' %}" method="POST">
+    {% csrf_token %}
+    <div>
+    <label for="nameId">Enter QR Name</label>
+    <br>
+    <input type="text" id="nameId" name="name" required>
+    <br>
+    <label for="urlId">Enter Url</label>
+    <br>
+    <input type="text" id="urlId" name="url" required>
+    <br>
+    <button class="btn btn-success">Create Web QR</button>
+</form>

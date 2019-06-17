@@ -1,0 +1,29 @@
+{% include 'qrcodes/base.html' %}
+<div style="padding: 70px;">
+<form action="{% url 'qrcodes:details' type qrcode.qr_id %}" method="POST">
+    {% csrf_token %}
+    <label for="nameId">Enter QR Name</label>
+    <br>
+    <input type="text" id="nameId" name="name" value={{qrcode.name}}  required}>
+    <br>
+    <label for="ssid">Enter SSID</label>
+    <br>
+    <input type="text" id="ssid" name="wifiname" value={{qrcode.wifiname}}  required}>
+    <br>
+    <label for="passwordId">Enter WiFi password</label>
+    <br>
+    <input type="text" id="passwardId" name="password" value={{qrcode.wifipassword}}>
+    <br>
+    <label for="typeId">Enter type</label>
+    <select style="width:190px" type="text" name="type" class="form-control" id="typeId" required>
+        <option selected hidden="selected">{{qrcode.wifitype}}</option> 
+        <option>WPA</option>
+        <option>WPA2</option>
+        <option>NONE</option>
+    </select>
+    <br>
+    
+    <button class="btn btn-primary">Edit QR</button>
+</form>
+
+<img src="data:image/png;base64, {{qr_img}}" height="500" width="500"">

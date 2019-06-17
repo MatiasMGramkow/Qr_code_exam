@@ -1,0 +1,28 @@
+{% include 'qrcodes/base.html' %}
+<div style="padding: 70px;">
+<form action="{% url 'qrcodes:details' type qrcode.qr_id %}" method="POST">
+    {% csrf_token %}
+    <label for="nameId">Enter QR Name</label>
+    <br>
+    <input type="text" id="nameId" name="name" value={{qrcode.name}} required>
+    <br>
+    <label for="firstnameId">Enter firstname</label>
+    <br>
+    <input type="text" id="firstnameId" name="firstname" value={{qrcode.firstname}}>
+    <br>
+    <label for="lastnameId">Enter lastname</label>
+    <br>
+    <input type="text" id="lastnameId" name="lastname" value={{qrcode.lastname}}>
+    <br>
+    <label for="emailId">Enter email</label>
+    <br>
+    <input type="text" id="emailId" name="email" value={{qrcode.email}}>
+    <br>
+    <label for="phoneId">Enter phone number</label>
+    <br>
+    <input type="number" id="phoneId" name="phone" value={{qrcode.phone}}>
+    <br>
+    <button class="btn btn-primary">Edit QR</button>
+</form>
+
+<img src="data:image/png;base64, {{qr_img}}" height="500" width="500">

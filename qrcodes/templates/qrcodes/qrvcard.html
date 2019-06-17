@@ -1,0 +1,26 @@
+{% include 'qrcodes/base.html' %}
+<div style="padding: 70px;">
+<form action="{% url 'qrcodes:new_vcard_qr' %}" method="POST">
+        {% csrf_token %}
+        <label for="nameId">Enter QR Name</label>
+        <br>
+        <input type="text" id="nameId" name="name"  required>
+        <br> 
+        <label for="text">Enter First Name here</label>
+        <br>
+        <input type="text" name="firstname">
+        <br> 
+        <label for="text">Enter Last Name here</label>
+        <br>
+        <input type="text" name="lastname">
+        <br> 
+        <label for="text">Enter Number here</label>
+        <br>
+        <input type="text" name="phone" required>
+        <br> 
+        <label for="text">Enter Email here</label>
+        <br>
+        <input type="text" name="email">
+        <br>
+        <button class="btn btn-success">Create VCard QR</button>
+    </form>

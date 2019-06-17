@@ -1,0 +1,33 @@
+{% include 'login/base.html' %}
+<div style="padding: 70px;">
+
+<div class="card" style="width:290px">
+    <form action="." method="post" class="text-center" style="color: #757575;">
+        {% csrf_token %}
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong>Login</strong>
+        </h5>
+        <br>
+        <div class="md-form">
+            <input class="form-control" type="text" name="user" placeholder="User Name">
+        </div>
+        
+        <div class="md-form">
+           <input type="password" name="password" placeholder="Password" class="form-control">
+        </div>
+        <br>
+        <button style="width:200px;" class="btn btn-info" type="submit">Login</button>
+        
+    </form>
+</div>
+
+
+        <style>
+            div.card
+            {
+            left: 730px;
+            border:1px solid black;
+            }
+        </style>
+
